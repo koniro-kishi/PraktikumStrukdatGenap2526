@@ -5,7 +5,7 @@
 
 // int main(){
 //     int x, y;
-//     cout << "Masukkanlah dua buah angka yang akan dijumlahkan:" << "\n"; // printf("masukkanlah ... \n") 
+//     cout << "Masukkanlah dua buah angka yang akan dijumlahkan:" << endl; // printf("masukanlah ....")
 //     cin >> x >> y; //Menerima input dari pengguna // scanf("%d %d", x, y)
 //     int sum = x + y; //Operasi penjumlahan
  
@@ -16,7 +16,6 @@
 //     return EXIT_SUCCESS; //Program berakhir dengan sukses
 // }
 
-// ============== Pointer ==============
 // #include <cstdlib>
 // #include <iostream>
 // using namespace std;
@@ -24,13 +23,8 @@
 // int main(){
 //     char ch = 'A';
 //     char *p = &ch;
-//     cout << "ch: "<< ch << endl;
-//     cout << "*p: "<< *p << endl;
-//     ch = 'q';
-//     cout << "*p: "<< *p << endl;
-//     *p = 'w';
-//     cout << "ch: "<< ch << endl;
-//     cout << "*p: "<< *p << endl;
+//     cout << ch << endl;
+//     cout << *p << endl;
 //     ch = '1';
 //     *p = '2';
 //     cout << *p << endl;
@@ -51,10 +45,9 @@
 //     budi.no_induk = 62;
 //     budi.nama = "budi";
 //     budi.nilai = 7.89;
-//     printf("%d\n", budi.no_induk);
-//     printf(budi.nama.c_str()); 
-//     printf("\n");
-//     printf("%.2f\n", budi.nilai);
+//     printf("%d", budi.no_induk);
+//     printf(budi.nama.c_str());
+//     printf("%.2f", budi.nilai);
 // }
 
 
@@ -67,25 +60,12 @@
 //     vector<int> data;
     
 //     data.push_back(10);
-//     cout << data.size() << endl;
-//     for(int i = 0; i < data.size(); i++) {
-//     cout << data[i] << " ";
-//     } 
-//     cout << endl;
-
 //     data.push_back(20);
-//     cout << data.size() << endl;
-//     for(int i = 0; i < data.size(); i++) {
-//     cout << data[i] << " ";
-//     }
-//     cout << endl;
-    
 //     data.push_back(30);
-//     cout << data.size() << endl;
+    
 //     for(int i = 0; i < data.size(); i++) {
 //     cout << data[i] << " ";
 //     }
-//     cout << endl;
 
 //     return 0;
 // }
@@ -96,12 +76,9 @@
 // #include <map>
 // using namespace std;
 // int main() {
-//     map<string, int> nilai; // (key -> value)
-//     map<int, string> ialin;
-//     nilai["Ani"] = 85; // (ani -> 85)
-//     nilai["Budi"] = 90; // (budi -> 90)
-//     ialin[1] = "10";
-//     // (ani -> 85, budi -> 90)
+//     map<string, int> nilai;
+//     nilai["Ani"] = 85;
+//     nilai["Budi"] = 90;
 //     for(auto it = nilai.begin(); it != nilai.end(); it++) {
 //     cout << it->first << " : " << it->second << endl;
 //     }
@@ -121,64 +98,62 @@
 //     cout << *it << " ";
 //     }
     
-    
 //     return 0;
 // }
 
 
-// // ============== Algorithm ==============
-// #include <iostream>
-// #include <vector>
-// #include <algorithm>
-// using namespace std;
+// ============== Algorithm ==============
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
-// int main() {
-//     vector<int> data = {30, 10, 10, 20, 1000};
+int main() {
+    vector<int> data = {30, 10, 20};
     
-//     // sort: urutin ascending
-//     sort(data.begin(), data.end());
-//     // begin = elemen pertama, end = setelah elemen terakhir
+    // sort: urutin ascending
+    sort(data.begin(), data.end());
+    // begin = elemen pertama, end = setelah elemen terakhir
 
-//     for(auto x : data) {
-//     cout << x << " ";
-//     }
+    for(int x : data) {
+    cout << x << " ";
+    }
+    cout << endl;
+
+
+    // find: cari elemen
+    int cari = 67;
+    vector<int>::iterator posisi = find(data.begin(), data.end(), cari);
+    if (posisi != data.end())
+    {
+        // kalau ketemu
+        cout << "Ketemu elemen bernilai " << cari << " di data" << endl;
+    } else
+    {
+        // kalau gak ketemu
+        cout << "Gak ketemu elemen bernilai " << cari << " di data" << endl;
+    }
     
-//     cout << endl;
-
-
-//     // find: cari elemen
-//     int cari = 30;
-//     vector<int>::iterator posisi = find(data.begin(), data.end(), cari);
-//     if (posisi != data.end())
-//     {
-//         // kalau ketemu
-//         cout << "Ketemu elemen bernilai " << cari << " di data" << endl;
-//     } else
-//     {
-//         // kalau gak ketemu
-//         cout << "Gak ketemu elemen bernilai " << cari << " di data" << endl;
-//     }
     
-    
-//     // // count: jumlah elemen bernilai sekian
-//     int hitung = -1;
-//     int jumlah = count(data.begin(), data.end(), hitung);
-//     cout << "Ada " << jumlah << " elemen bernilai " << hitung << " di data" << endl;
+    // // count: jumlah elemen bernilai sekian
+    // int hitung = 11;
+    // int jumlah = count(data.begin(), data.end(), hitung);
+    // cout << "Ada " << jumlah << " elemen bernilai " << hitung << " di data" << endl;
 
-//     // reverse: putar urutan
-//     reverse(data.begin(), data.end());
+    // // reverse: putar urutan
+    // reverse(data.begin(), data.end());
 
-//     for(int x : data) {
-//     cout << x << " ";
-//     }
-//     cout << endl;
+    // for(int x : data) {
+    // cout << x << " ";
+    // }
+    // cout << endl;
 
-//     // // max_element: nilai terbesar
-//     vector<int>::iterator max = max_element(data.begin(), data.end());
-//     cout << "elemen dengan nilai terbesar di data adalah " << *max << endl;
+    // // max_element: nilai terbesar
+    // vector<int>::iterator max = max_element(data.begin(), data.end());
+    // cout << "elemen dengan nilai terbesar di data adalah " << *max << endl;
 
-//     return 0;
-// }
+    return 0;
+}
 
 // ============== File ==============
 // #include <iostream>
