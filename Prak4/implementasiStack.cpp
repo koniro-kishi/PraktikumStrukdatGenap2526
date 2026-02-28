@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define STACKSIZE 100
+#define STACKSIZE 3
 #define TRUE 1
 #define FALSE 0
 
@@ -109,6 +109,7 @@ int pop(Stack *s, int *value)
     if (is_empty(s))
         return FALSE;
 
+    // simpan nilai yang dipop, terus tandain topnya udah turun
     *value = s->item[(s->top)--];
     return TRUE;
 }

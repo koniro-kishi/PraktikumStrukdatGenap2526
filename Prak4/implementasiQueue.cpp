@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -94,6 +95,8 @@ int enqueue(Queue *q, int x)
         return FALSE;
     
     q->item[++(q->rear)] = x;
+    std::cout << "front: " << q->front << std::endl;
+    std::cout << "rear: " << q->rear << std::endl;
     return TRUE;
 }
 
@@ -102,6 +105,9 @@ int dequeue(Queue *q, int *value)
     if (is_empty(q))
         return FALSE;
 
+    // simpen nilai yang didequeue, naikin front
     *value = q->item[(q->front)++];
+    std::cout << "front: " << q->front << std::endl;
+    std::cout << "rear: " << q->rear << std::endl;
     return TRUE;
 }
